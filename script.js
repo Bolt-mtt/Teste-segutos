@@ -79,18 +79,21 @@ rcItems.forEach((item, index) => {
     });
 });
 
-// RC Ambiental - Escala e rotação 3D do card principal
-gsap.from(".eco-card", {
-    scale: 0.7,
-    opacity: 0,
-    rotationX: 25,
-    y: 100,
-    scrollTrigger: {
-        trigger: ".environmental",
-        start: "top 80%",
-        end: "center center",
-        scrub: 1
-    }
+// Cards Centrais de Destaque (Nova Lei e Ambiental) - Escala e rotação 3D
+const ecoCards = gsap.utils.toArray(".eco-card");
+ecoCards.forEach((card) => {
+    gsap.from(card, {
+        scale: 0.7,
+        opacity: 0,
+        rotationX: 25,
+        y: 100,
+        scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            end: "center center",
+            scrub: 1
+        }
+    });
 });
 
 // Timeline de Averbação
