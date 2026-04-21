@@ -1,11 +1,11 @@
 :root {
-    --bg-color: #f8fafc;
-    --text-color: #0f172a;
-    --brand-primary: #6a93ab; /* Steel blue da logo */
+    --bg-color: #040d12;
+    --text-color: #f1f5f9;
+    --brand-primary: #6a93ab; /* Logo's steel blue */
     --brand-secondary: #487d98;
-    --brand-accent: #3b82f6;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.5);
+    --brand-accent: #8bb1c7;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 html, body {
@@ -35,22 +35,23 @@ body {
     width: 0%;
     background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
     z-index: 9999;
+    box-shadow: 0 0 10px var(--brand-primary);
 }
 
 /* Glassmorphism */
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     padding: 2.5rem;
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .glass-card:hover {
-    box-shadow: 0 15px 50px -10px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Layout */
@@ -61,7 +62,7 @@ body {
     justify-content: center;
     padding: 4rem 2rem;
     position: relative;
-    overflow: hidden; /* Evita que animações GSAP causem scroll horizontal no mobile */
+    overflow: hidden; /* Fix for mobile horizontal scroll */
 }
 
 .content-wrapper {
@@ -74,25 +75,27 @@ body {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    color: #1e293b;
+    background: linear-gradient(90deg, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .section-title.text-green {
-    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    background: linear-gradient(90deg, var(--brand-accent), var(--brand-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .section-desc {
     font-size: 1.25rem;
-    color: #64748b;
+    color: #cbd5e1;
     max-width: 700px;
     margin-bottom: 3.5rem;
 }
 
 /* Hero Section */
 .hero {
-    background: radial-gradient(circle at center, #e2e8f0 0%, var(--bg-color) 70%);
+    background: radial-gradient(circle at center, #0f222e 0%, var(--bg-color) 70%);
 }
 
 .hero-content {
@@ -105,8 +108,7 @@ body {
 .hero .logo {
     width: 280px;
     margin-bottom: 2.5rem;
-    mix-blend-mode: multiply; /* Remove o fundo claro deixando apenas o logo escuro no site claro */
-    filter: contrast(1.1);
+    filter: drop-shadow(0 0 20px rgba(106, 147, 171, 0.3));
 }
 
 .hero .title {
@@ -114,14 +116,14 @@ body {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(90deg, var(--brand-secondary), var(--brand-accent));
+    background: linear-gradient(90deg, #ffffff, var(--brand-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero .subtitle {
     font-size: 1.6rem;
-    color: #475569;
+    color: #94a3b8;
 }
 
 .scroll-indicator {
@@ -130,7 +132,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    color: #64748b;
+    color: #94a3b8;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -149,7 +151,7 @@ body {
 .wheel {
     width: 4px;
     height: 10px;
-    background: var(--brand-primary);
+    background: var(--brand-accent);
     border-radius: 2px;
     animation: scroll 2s infinite;
 }
@@ -171,18 +173,18 @@ body {
 }
 
 .role-card.transportador {
-    border-top: 4px solid var(--brand-accent);
+    border-top: 4px solid var(--brand-secondary);
 }
 
 .role-card h3 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--brand-secondary);
+    color: #fff;
 }
 
 .role-card p {
     font-size: 1.3rem;
-    color: #475569;
+    color: #cbd5e1;
 }
 
 /* Shippers */
@@ -195,7 +197,7 @@ body {
 .feature-item h4 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: var(--brand-secondary);
+    color: var(--brand-accent);
 }
 
 /* Transporters */
@@ -210,22 +212,22 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    border-left: 4px solid var(--brand-primary);
+    border-left: 4px solid var(--brand-accent);
 }
 
-.rc-item:nth-child(2) { border-left-color: var(--brand-secondary); }
-.rc-item:nth-child(3) { border-left-color: var(--brand-accent); }
+.rc-item:nth-child(2) { border-left-color: var(--brand-primary); }
+.rc-item:nth-child(3) { border-left-color: var(--brand-secondary); }
 
 .rc-item h4 {
     font-size: 1.6rem;
-    color: #1e293b;
+    color: #fff;
     min-width: 280px;
 }
 
 .rc-item p {
     flex-grow: 1;
     font-size: 1.2rem;
-    color: #475569;
+    color: #e2e8f0;
 }
 
 /* Environmental */
@@ -238,13 +240,14 @@ body {
 .highlight-text {
     font-size: 2rem;
     margin-bottom: 3rem;
-    color: var(--brand-secondary);
+    color: var(--brand-accent);
 }
 .eco-card {
     max-width: 900px;
     font-size: 1.5rem;
     border-color: rgba(106, 147, 171, 0.4);
-    background: rgba(106, 147, 171, 0.05);
+    background: rgba(106, 147, 171, 0.08);
+    box-shadow: 0 0 40px rgba(106, 147, 171, 0.1);
 }
 
 /* Averbação */
@@ -263,7 +266,7 @@ body {
     bottom: 0;
     left: 60px;
     width: 2px;
-    background: #cbd5e1;
+    background: var(--glass-border);
 }
 
 .timeline-item {
@@ -285,18 +288,18 @@ body {
     font-size: 2.2rem;
     font-weight: 800;
     flex-shrink: 0;
+    box-shadow: 0 0 25px rgba(106, 147, 171, 0.5);
     color: white;
-    box-shadow: 0 10px 20px rgba(106, 147, 171, 0.3);
 }
 
 .step-content h4 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    color: #1e293b;
+    color: #fff;
 }
 
 .step-content p {
-    color: #475569;
+    color: #94a3b8;
     font-size: 1.2rem;
 }
 
@@ -305,13 +308,13 @@ body {
     min-height: 60vh;
     flex-direction: column;
     text-align: center;
-    background: linear-gradient(to top, #e2e8f0, var(--bg-color));
+    background: linear-gradient(to top, #0f222e, var(--bg-color));
 }
 
 .footer h2 {
     font-size: 3.5rem;
     margin-bottom: 2.5rem;
-    background: linear-gradient(90deg, var(--brand-secondary), var(--brand-primary));
+    background: linear-gradient(90deg, #fff, var(--brand-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -326,14 +329,14 @@ body {
     font-size: 1.3rem;
     border-radius: 50px;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(106, 147, 171, 0.3);
+    box-shadow: 0 4px 15px rgba(106, 147, 171, 0.4);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .btn-primary:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(106, 147, 171, 0.4);
+    box-shadow: 0 10px 30px rgba(106, 147, 171, 0.6);
     background: var(--brand-secondary);
 }
 
